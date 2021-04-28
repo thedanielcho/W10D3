@@ -2,7 +2,7 @@ import React from "react";
 
 const Tile = (props) => {
   return (
-    'T'
+    <p>T</p>
   )
 }
 
