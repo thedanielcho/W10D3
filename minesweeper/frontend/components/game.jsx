@@ -8,9 +8,10 @@ class Game extends React.Component{
         super(props);
         
         this.state = { 
-            board: new Minesweeper.Board(6, 4)
+            board: new Minesweeper.Board(6, 10)
         }
         this.updateGame = this.updateGame.bind(this);
+        this.restartGame = this.restartGame.bind(this);
     }
 
     updateGame(tile, bool){
@@ -23,6 +24,10 @@ class Game extends React.Component{
         this.setState({board: this.state.board});
     }
 
+    restartGame(){
+        this.setState({board: new Minesweeper.Board(6, 10)});
+    }
+
     render(){
         console.log("in RENDER")
         
@@ -30,7 +35,13 @@ class Game extends React.Component{
             
             return (
                 <div>
-                    <p>You WIN!</p>
+                    <div className="modal">
+                        <div className="modal-screen"></div>
+                        <div className="modal-content">
+                            <p>You won!</p>
+                            <button onClick={this.restartGame}>Play again</button>
+                        </div>
+                    </div>
                     <Board board={this.state.board} updateGame={this.updateGame} />
                 </div>
             )
@@ -38,14 +49,19 @@ class Game extends React.Component{
             
             return (
                 <div>
-                    <p>You LOSE!</p>
+                    <div className="modal">
+                        <div className="modal-screen"></div>
+                        <div className="modal-content">
+                            <p>You Lose!</p>
+                            <button onClick={this.restartGame}>Play again</button>
+                        </div>
+                    </div>
                     <Board board={this.state.board} updateGame={this.updateGame} />
                 </div>
             )
         } else {
             return (
                 <div>
-                    <p>You PLAYING!</p>
                     <Board board={this.state.board} updateGame={this.updateGame} />
                 </div>
             )

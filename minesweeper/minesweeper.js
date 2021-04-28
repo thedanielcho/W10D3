@@ -113,7 +113,6 @@ export class Board {
   }
 
   won() {
-    debugger;
     let won = true;
     this.grid.forEach(row => {
       row.forEach(tile => {
@@ -122,7 +121,6 @@ export class Board {
         }
       });
     });
-    debugger;
     return won;
   }
 }

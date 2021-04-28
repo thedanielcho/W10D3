@@ -22,7 +22,7 @@ p {
 
 
 .row {
-  width: 120px;
+  width: 140px;
   display:flex;
   justify-content: center;
   margin: auto;
@@ -36,8 +36,40 @@ p {
   border-style: outset;
   cursor: pointer;
   text-align: center;
+  float: left;
+  line-height: 20px;
+  padding-left: 3px;
 }
 
 .explored {
   border-style: inset;
 }
+
+.modal {
+  display: block;
+}
+
+.modal-screen {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 25%;
+  background: white;
+  z-index: 3;
+  width: 150px;
+  padding: 30px;
+  border-radius: 5px;
+  text-align: center;
+  margin: auto;
+}
+
