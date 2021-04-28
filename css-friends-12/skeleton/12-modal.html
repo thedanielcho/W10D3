@@ -38,6 +38,7 @@
         </li>
         <li><a href="#">Profile</a></li>
         <li><a href="#">Settings</a></li>
+        <li><a href="#" class="js-modal-open">Sign In</a></li>
       </ul>
 
     </nav>
@@ -231,6 +232,46 @@
     </ul>
 
   </footer>
+
+  <div class="modal">
+    <div class="modal-screen js-modal-close"></div>
+    <form class="modal-form">
+      <span class="x js-modal-close">&times;</span>
+      <h1>Welcome</h1>
+      <h6>Please sign in to continue.</h6>
+      <div class="input">
+        <label for="email">Email</label>
+        <input type="text" id="email" value="">
+      </div>
+      <div class="input">
+        <label for="password">password</label>
+        <input type="password" id="password">
+      </div>
+      <div class="submit">
+        <button>Sign in</button>
+        <span>
+          or 
+            <strong class="js-modal-close">Cancel</strong>
+        </span>
+      </div>
+    </form>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    $(function(){
+
+      $("body").on("click", ".js-modal-open", function(event){
+        event.preventDefault();
+        $(".modal").addClass("is-open");
+      });
+
+      $("body").on("click", ".js-modal-close", function(event){
+        event.preventDefault();
+        $(".modal").removeClass("is-open");
+      });
+
+    });
+  </script>
 
 </body>
 </html>
