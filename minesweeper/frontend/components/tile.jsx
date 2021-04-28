@@ -6,7 +6,7 @@ const Tile = (props) => {
   let status = ""
   if(props.tile.explored){
     if(props.tile.bombed){
-      text = "\uD83D\uDCA3";
+        text = "☢";
       status = "bombed"
     } else if(props.tile.adjacentBombCount() > 0){
       text = `${props.tile.adjacentBombCount()}`
@@ -16,12 +16,20 @@ const Tile = (props) => {
       status = "explored"
     }
   } else if(props.tile.flagged){
-    text = "\uD83C\uDFF3";
+      text = "⚑";
     status = "flagged"
   }
 
   return (
-    <div className={"tile " + status}>
+    <div className={"tile " + status} 
+    onClick={e => {
+        if(e.altKey){
+            return props.updateGame(props.tile, true);
+        } else {
+            return props.updateGame(props.tile, false);
+        }
+    }}
+    >
       {text}
     </div>
   )
