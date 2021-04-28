@@ -1,0 +1,36 @@
+.board {
+  position: absolute;
+  background-color: gray;
+  border-style: inset;
+  margin: auto;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#root {
+  padding-top: 5px;
+}
+
+h1 {
+  text-align: center;
+}
+p {
+  text-align: center;
+  margin: 0px;
+  padding-bottom: 5px;
+}
+
+
+.row {
+  width: 120px;
+  display:flex;
+  justify-content: center;
+  margin: auto;
+}
+
+.tile {
+  height: 20px;
+  width: 20px;
+  background-color: lightgray;
+  border: 1px solid black;
+}
